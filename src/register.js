@@ -24,9 +24,9 @@ function buildStory({ story, component, name, storiesOf }, config) {
       props: data,
       template: story.template,
       methods: {
-        action(name, ...payload) {
+        action(name, options = {}) {
           if (methods.action) {
-            methods.action(name)(...payload);
+            methods.action(name, options)
           } else {
             console.warn("You forgot to add the action method!");
           }
